@@ -9,7 +9,8 @@ function beginGame(){
 	setTimeout(disableFunc, 20000);
 
 	for(var i = 0; i < buttonImages.length; i++){
-  	buttonImages[i].addEventListener("click", clickCounter);  
+		buttonImages[i].disabled = false;
+  		buttonImages[i].addEventListener("click", clickCounter);  
 	}
 }
 
@@ -29,7 +30,9 @@ function disableFunc(){
 
 	for(var i = 0; i < buttonImages.length; i++){
 		if(buttonImages[i].id != "start"){
-  		buttonImages[i].value = "unclicked";  
-  	}
+  			buttonImages[i].value = "unclicked";  
+  			buttonImages[i].disabled = "disabled";
+  		}
 	}
+
 }
