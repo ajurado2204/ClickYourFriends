@@ -1,6 +1,5 @@
 button.btn.btn-default{
-  width: 100%;
-  
+  width: 100%; 
 }
 
 img{
@@ -8,8 +7,12 @@ img{
 }
 
 #approve{
-  position: fixed;
+  position: absolute;
   bottom: 0;
   right: 0;
   z-index: 1;
+}
+
+#myApproval .modal-body{
+  height: 130px;
 }

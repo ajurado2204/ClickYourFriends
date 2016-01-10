@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	// GLobal Variable
+	// Global Variables
 	var buttonImages = document.getElementsByClassName('friend');
 	var startButton = document.getElementById("start");
 	var counter = 0;
