@@ -1,7 +1,15 @@
 button.btn.btn-default{
   width: 100%;
+  
 }
 
 img{
-  height: 120px;
+  height: 100px;
+}
+
+#approve{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
 }
