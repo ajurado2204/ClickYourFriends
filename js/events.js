@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	// GLobal Variable
-	var buttonImages = document.getElementsByTagName('button');
+	var buttonImages = document.getElementsByClassName('friend');
 	var startButton = document.getElementById("start");
 	var counter = 0;
 
@@ -25,16 +25,15 @@ $(document).ready(function(){
 		if(event.currentTarget.value == "unclicked"){
 			counter = counter + 1;
 			event.currentTarget.value = "clicked"
-		 }else{
-		 		console.log(counter);		  		
-		 	};
+		 }
 	};
 
 	//Function to Show Results and to reset Game
 
 	function disableFunc(){
+		document.getElementById("clickTotal").innerHTML = counter;
 		$('#myModal').modal('show');
-		//alert("You clicked " + counter + " of your friends!!");
+		
 		startButton.style.visibility = 'visible';
 		counter = 0;
 
