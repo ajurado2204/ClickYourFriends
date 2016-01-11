@@ -1,38 +1,47 @@
-var buttonImages = document.getElementsByTagName('button');
-var startButton = document.getElementById("start");
-var counter = 0;
+$(document).ready(function(){
 
-startButton.addEventListener("click", beginGame);
+	// Global Variables
+	var buttonImages = document.getElementsByClassName('friend');
+	var startButton = document.getElementById("start");
+	var counter = 0;
 
-function beginGame(){
-	startButton.style.visibility = 'hidden';
-	setTimeout(disableFunc, 20000);
+	//Begins Game on Click of Start Button
 
-	for(var i = 0; i < buttonImages.length; i++){
-		buttonImages[i].disabled = false;
-  		buttonImages[i].addEventListener("click", clickCounter);  
-	}
-}
+	startButton.addEventListener("click", beginGame);
 
-function clickCounter(){
-	if(event.currentTarget.value == "unclicked"){
-				counter = counter + 1;
-				event.currentTarget.value = "clicked"
-	 		}else{
-	 			console.log(counter);		  		
-	 		}
-}
+	function beginGame(){
+		startButton.style.visibility = 'hidden';
+		setTimeout(function(){resetGame();}, 20000);
 
-function disableFunc(){
-	alert("You clicked " + counter + " of your friends!!");
-	startButton.style.visibility = 'visible';
-	counter = 0;
-
-	for(var i = 0; i < buttonImages.length; i++){
-		if(buttonImages[i].id != "start"){
-  			buttonImages[i].value = "unclicked";  
-  			buttonImages[i].disabled = "disabled";
-  		}
+		for(var i = 0; i < buttonImages.length; i++){
+			buttonImages[i].disabled = false;
+	  	buttonImages[i].addEventListener("click", clickCounter);  
+		}
 	}
 
-}
+	//Function to Counts Number of Clicks
+
+	function clickCounter(){
+		if(event.currentTarget.value == "unclicked"){
+			counter = counter + 1;
+			event.currentTarget.value = "clicked";
+		 }
+	}
+
+	//Function to Show Results and to reset Game
+
+	function resetGame(){
+		document.getElementById("clickTotal").innerHTML = counter;
+		$('#myModal').modal('show');
+		
+		startButton.style.visibility = 'visible';
+		counter = 0;
+
+		for(var i = 0; i < buttonImages.length; i++){
+			if(buttonImages[i].id != "start"){
+	  		buttonImages[i].value = "unclicked";  
+	  		buttonImages[i].disabled = "disabled";
+	  	}
+		}
+	}
+});

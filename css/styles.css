@@ -1,0 +1,18 @@
+button.btn.btn-default{
+  width: 100%; 
+}
+
+img{
+  height: 100px;
+}
+
+#approve{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#myApproval .modal-body{
+  height: 130px;
+}
