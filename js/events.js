@@ -22,7 +22,7 @@ $(document).ready(function(){
 	//Function to Counts Number of Clicks
 
 	function clickCounter(){
-		if(event.currentTarget.value == "unclicked"){
+		if(event.currentTarget.value === "unclicked"){
 			counter = counter + 1;
 			event.currentTarget.value = "clicked";
 		 }
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		counter = 0;
 
 		for(var i = 0; i < buttonImages.length; i++){
-			if(buttonImages[i].id != "start"){
+			if(buttonImages[i].id !== "start"){
 	  		buttonImages[i].value = "unclicked";  
 	  		buttonImages[i].disabled = "disabled";
 	  	}
