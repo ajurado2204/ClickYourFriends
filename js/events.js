@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var buttonImages = document.getElementsByClassName('friend');
 	var startButton = document.getElementById("start");
 	var counter = 0;
+  var secondsLeft = 20;
 
 	//Begins Game on Click of Start Button
 
@@ -11,12 +12,23 @@ $(document).ready(function(){
 
 	function beginGame(){
 		startButton.style.visibility = 'hidden';
+
 		setTimeout(function(){resetGame();}, 20000);
 
-		for(var i = 0; i < buttonImages.length; i++){
-			buttonImages[i].disabled = false;
-	  	buttonImages[i].addEventListener("click", clickCounter);  
-		}
+    secondsLeft = 20;
+    id = setInterval(function() {
+      secondsLeft--;
+      if(secondsLeft < 0) {
+      } else {
+        document.getElementById("timer").innerHTML = secondsLeft;
+        for(var i = 0; i < buttonImages.length; i++){
+          buttonImages[i].disabled = false;
+          buttonImages[i].addEventListener("click", clickCounter);
+        }
+      }
+
+    }, 1000);
+
 	}
 
 	//Function to Counts Number of Clicks
@@ -25,6 +37,7 @@ $(document).ready(function(){
 		if(event.currentTarget.value === "unclicked"){
 			counter = counter + 1;
 			event.currentTarget.value = "clicked";
+      document.getElementById("clickTotalDisplay").innerHTML = counter;
 		 }
 	}
 
@@ -32,16 +45,14 @@ $(document).ready(function(){
 
 	function resetGame(){
 		document.getElementById("clickTotal").innerHTML = counter;
-		$('#myModal').modal('show');
-		
-		startButton.style.visibility = 'visible';
-		counter = 0;
 
-		for(var i = 0; i < buttonImages.length; i++){
-			if(buttonImages[i].id !== "start"){
-	  		buttonImages[i].value = "unclicked";  
-	  		buttonImages[i].disabled = "disabled";
-	  	}
-		}
+    $('#myModal').modal({
+      backdrop: 'static',
+      keyboard: true
+    });
+
+    $('#play-again').on('click', function(){
+      location.reload();
+    });
 	}
 });
