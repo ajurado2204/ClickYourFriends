@@ -1,5 +1,9 @@
 button.btn.btn-default{
-  width: 100%; 
+  width: 100%;
+}
+
+button.btn.btn-default.startbtn {
+  background-color: #ECDFBD !important;
 }
 
 img{
@@ -19,4 +23,26 @@ img{
 
 .larger-font {
   font-size: 25px;
+  font-weight: bold;
+  color: #ECDFBD;
+}
+
+#clickTotalDisplay {
+  color: #FB6648;
+}
+
+#timer {
+  color: #FB6648;
+}
+
+body {
+  background-color: #5E3448;
+}
+
+.page-header h1 {
+  color: #FB6648;
+}
+
+small {
+  color: #FB6648;
 }
